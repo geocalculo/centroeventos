@@ -1,0 +1,55 @@
+/* =========================================================
+   CONFIGURACIÓN DEL SITIO — edita solo este archivo
+   ========================================================= */
+window.SITE_CONFIG = {
+  // Marca
+  nombre: "Mi Pimiento",
+  bajada: "Centro de Eventos · Máximo 30 personas",
+  eslogan: "Donde los recuerdos florecen",
+  dominio: "https://mipimiento.cl",
+  precio: "$250.000",
+  horario: "12:00–20:00",
+
+  // WhatsApp: código país + número, sin "+", espacios ni guiones (ej: 56912345678)
+  whatsapp: "56900000000",
+
+  // Ubicación
+  direccion: "Dirección por definir, Comuna, Región",
+  comoLlegar: "Indicaciones breves: referencias, tipo de camino, tiempo desde el centro, etc.",
+  lat: -33.4489,   // reemplaza por las coordenadas reales (clic derecho en Google Maps → copiar)
+  lng: -70.6693,
+
+  // Días de la semana que arriendas (0=domingo, 1=lunes … 6=sábado).
+  // Los días que no estén aquí aparecen como "no disponible".
+  // Ej. solo fines de semana: [5, 6, 0]
+  diasHabilitados: [0, 1, 2, 3, 4, 5, 6],
+
+  // Cuántos meses hacia adelante se puede navegar en el calendario
+  mesesVisibles: 12,
+
+  // Fotos (pon los archivos en la carpeta /fotos). Recomendado: JPG/WebP de 1600 px de ancho, < 300 KB.
+  portada: "fotos/portada.jpg",
+  retrato: "fotos/maria-inah.jpg",
+  fotos: [
+    { src: "fotos/piscina.png", titulo: "Piscina", categoria: "Piscina" },
+    { src: "fotos/piscina-tarde.jpg", titulo: "Piscina al atardecer", categoria: "Piscina" },
+    { src: "fotos/quincho.jpg", titulo: "Quincho", categoria: "Quincho" },
+    { src: "fotos/quincho-interior.jpg", titulo: "Interior del quincho", categoria: "Quincho" },
+    { src: "fotos/jardin.jpg", titulo: "Jardín", categoria: "Jardines" },
+    { src: "fotos/parrilla.png", titulo: "Parrilla", categoria: "Instalaciones" },
+    { src: "fotos/cocina-lena.jpg", titulo: "Cocina a leña", categoria: "Instalaciones" },
+    { src: "fotos/banos.jpg", titulo: "Baños", categoria: "Instalaciones" },
+    { src: "fotos/estacionamiento.jpg", titulo: "Estacionamiento", categoria: "Instalaciones" }
+  ],
+
+  // Firebase: pega aquí la config de tu proyecto (Consola Firebase → Configuración del proyecto → Tus apps → Web).
+  // Si lo dejas vacío, el sitio funciona en MODO DEMO con fechas de ejemplo.
+  firebase: {
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: ""
+  }
+};

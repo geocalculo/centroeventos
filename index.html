@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mi Pimiento | Centro de Eventos</title>
+<meta name="description" content="Mi Pimiento, centro de eventos familiares con piscina, quincho y áreas verdes. Donde los recuerdos florecen. Revisa la disponibilidad y consulta por WhatsApp.">
+<link rel="canonical" href="https://mipimiento.cl/">
+<!-- Dominio de referencia para buscadores y redes -->
+<meta property="og:site_name" content="Mi Pimiento">
+<meta property="og:locale" content="es_CL">
+<meta property="og:url" content="https://mipimiento.cl/">
+<meta property="og:title" content="Mi Pimiento | Centro de Eventos">
+<meta property="og:description" content="Donde los recuerdos florecen. Un lugar para encuentros familiares, con piscina, quincho y áreas verdes.">
+<meta property="og:image" content="https://mipimiento.cl/fotos/portada.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#24301f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f5efe6; --paper:#fbf8f3; --ink:#1f2a1c; --muted:#6b6a5f; --line:#e3dacb;
+    --olive:#24301f; --moss:#4d6b3c; --terra:#b9603a; --water:#2f7f93;
+    --ok:#3f7d4b; --ok-bg:#e6f0e3; --res:#9a8f80; --res-bg:#ece5da;
+    --wa:#1fa855; --r:14px;
+    --serif:"Fraunces", Georgia, serif; --sans:"Manrope", system-ui, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+  .eyebrow{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--terra)}
+  h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,4.2vw,2.8rem);line-height:1.1;letter-spacing:-.01em;margin:.35rem 0 .6rem}
+  .lead{color:var(--muted);max-width:52ch}
+  section{padding:88px 0}
+  .btn{display:inline-flex;align-items:center;gap:.6em;border:0;cursor:pointer;font:700 .86rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:18px 26px;border-radius:999px;text-decoration:none;transition:transform .15s, background .2s, box-shadow .2s}
+  .btn:active{transform:scale(.98)}
+  .btn-light{background:#fbf8f3;color:var(--olive)}
+  .btn-light:hover{background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+  .btn-wa{background:var(--wa);color:#fff;letter-spacing:.04em;text-transform:none;font-size:1rem;padding:17px 24px}
+  .btn-wa:hover{background:#18924a}
+  .btn-ghost{background:transparent;color:var(--olive);border:1.5px solid var(--olive);letter-spacing:.04em;text-transform:none;font-size:.95rem;padding:14px 20px}
+  .btn-ghost:hover{background:var(--olive);color:var(--paper)}
+  svg.i{width:1.15em;height:1.15em;flex:none}
+
+  /* ---------- Portada ---------- */
+  .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;color:#fbf8f3;overflow:hidden;isolation:isolate}
+  .hero-bg{position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center;
+    background-image:var(--portada),
+      radial-gradient(120% 60% at 70% 105%, #3aa0b4 0%, #2a7a8c 35%, transparent 62%),
+      radial-gradient(90% 55% at 15% 30%, #c98a52 0%, transparent 60%),
+      linear-gradient(170deg,#3b4a2e 0%,#5a6b3e 40%,#2b5f63 100%);
+    transform:scale(1.04);animation:kb 18s ease-out forwards}
+  @keyframes kb{to{transform:scale(1)}}
+  .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,24,14,.45) 0%,rgba(18,24,14,.05) 35%,rgba(18,24,14,.15) 55%,rgba(18,24,14,.78) 100%)}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+  .marca{font-family:var(--serif);font-size:1.15rem;letter-spacing:.02em}
+  .share-top{background:rgba(255,255,255,.14);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:999px;padding:10px 16px;font:600 .85rem var(--sans);cursor:pointer;display:inline-flex;gap:.45em;align-items:center}
+  .share-top:hover{background:rgba(255,255,255,.24)}
+  .hero-body{margin-top:auto;padding-bottom:clamp(48px,9vh,96px)}
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.9rem,9vw,6.4rem);line-height:.95;letter-spacing:-.02em;max-width:12ch;text-wrap:balance}
+  .hero .tag{margin:18px 0 26px;font-size:clamp(1rem,2.2vw,1.2rem);opacity:.92}
+  .hero .eslogan{font-family:var(--serif);font-size:clamp(1.5rem,3.8vw,2.3rem);line-height:1.25;margin:22px 0 0;color:#f5e5cf}
+  .hero-links{display:flex;flex-wrap:wrap;align-items:center;gap:18px}
+  .historia-link{color:var(--paper);text-underline-offset:5px;font-size:.95rem}
+
+  /* ---------- Nuestra historia ---------- */
+  .historia{background:var(--paper);border-top:1px solid var(--line)}
+  .historia-grid{display:grid;gap:32px;align-items:center}
+  .historia-texto{max-width:65ch}
+  .historia-texto p{margin-top:18px;color:var(--muted)}
+  .dedicatoria{padding:32px clamp(22px,4vw,44px);border:1px solid var(--line);border-top:3px solid var(--terra);border-radius:var(--r);background:var(--bg)}
+  .dedicatoria p{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2rem);line-height:1.35;color:var(--olive);margin:16px 0}
+  .dedicatoria small{color:var(--muted)}
+  @media(min-width:820px){.historia-grid{grid-template-columns:1.4fr 1fr;gap:64px}}
+  @media(max-width:599px){section{padding:60px 0}.topbar{gap:16px}.hero-body{padding-top:40px}}
+  .precio{display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:.2em .8em;margin-bottom:30px}
+  .precio b{font-family:var(--serif);font-weight:600;font-size:clamp(1.8rem,4vw,2.4rem)}
+  .precio span{font-size:1rem;opacity:.85;border-left:1px solid rgba(255,255,255,.45);padding-left:.8em}
+  .demo-flag{position:fixed;left:12px;bottom:12px;z-index:50;background:#fff3cd;color:#6b4f00;border:1px solid #f0d78a;font:600 .72rem var(--sans);padding:6px 10px;border-radius:8px}
+
+  /* ---------- Galería ---------- */
+  .gal{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:34px}
+  @media(min-width:820px){.gal{grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:12px}.gal .g:first-child{grid-column:span 2;grid-row:span 2}.gal .g:nth-child(4){grid-row:span 2}}
+  .g{position:relative;border:0;border-radius:var(--r);overflow:hidden;cursor:zoom-in;aspect-ratio:4/3;background-size:cover;background-position:center;color:#fff;text-align:left;padding:0}
+  @media(min-width:820px){.g{aspect-ratio:auto}}
+  .g::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.55));transition:opacity .3s}
+  .g span{position:absolute;left:14px;bottom:12px;z-index:1;font-weight:600;font-size:.92rem}
+  .g:hover{filter:brightness(1.05)}
+  .lb{position:fixed;inset:0;z-index:100;background:rgba(14,18,11,.94);display:none;align-items:center;justify-content:center;padding:20px}
+  .lb.on{display:flex}
+  .lb-img{width:min(1100px,100%);aspect-ratio:3/2;max-height:82vh;border-radius:10px;background-size:contain;background-repeat:no-repeat;background-position:center}
+  .lb-cap{position:absolute;bottom:22px;left:0;right:0;text-align:center;color:#ddd;font-size:.9rem}
+  .lb button{position:absolute;background:rgba(255,255,255,.12);color:#fff;border:0;width:48px;height:48px;border-radius:50%;font-size:1.4rem;cursor:pointer}
+  .lb .x{top:16px;right:16px}.lb .p{left:14px;top:50%}.lb .n{right:14px;top:50%}
+
+  /* ---------- Disponibilidad ---------- */
+  #disponibilidad{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .disp{display:grid;gap:40px}
+  @media(min-width:900px){.disp{grid-template-columns:1fr 1.25fr;align-items:start}}
+  .cal-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 20px 50px -30px rgba(36,48,31,.35)}
+  .cal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+  .cal-head h3{font-family:var(--serif);font-weight:400;font-size:1.45rem;text-transform:capitalize}
+  .nav{display:flex;gap:6px}
+  .nav button{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--paper);cursor:pointer;font-size:1.1rem;color:var(--olive)}
+  .nav button:disabled{opacity:.3;cursor:default}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+  .cal-dow{text-align:center;font-size:.72rem;font-weight:700;color:var(--muted);letter-spacing:.06em;padding:4px 0 6px}
+  .cal-day{aspect-ratio:1;border-radius:12px;border:1.5px solid transparent;font:600 .98rem var(--sans);display:flex;align-items:center;justify-content:center;position:relative;transition:transform .12s, background .15s}
+  .cal-day.disponible{background:var(--ok-bg);color:var(--ok);border-color:#cfe2ca;cursor:pointer}
+  .cal-day.disponible:hover{transform:translateY(-2px);border-color:var(--ok)}
+  .cal-day.disponible.sel{background:var(--ok);color:#fff;border-color:var(--ok);box-shadow:0 8px 20px -8px var(--ok)}
+  .cal-day.reservado{background:var(--res-bg);color:var(--res)}
+  .cal-day.reservado span{text-decoration:line-through;text-decoration-thickness:1.5px}
+  .cal-day.pasada{background:transparent;color:#c9c2b6}
+  .cal-day.cerrado{background:transparent;color:#bdb6a9;border:1.5px dashed #e6dfd3}
+  .cal-day.hoy::after{content:"";position:absolute;bottom:6px;width:4px;height:4px;border-radius:50%;background:currentColor}
+  .leyenda{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:18px;font-size:.84rem;color:var(--muted)}
+  .leyenda i{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:-2px;margin-right:6px}
+  .l-ok{background:var(--ok-bg);border:1.5px solid #cfe2ca}.l-res{background:var(--res-bg)}.l-pas{border:1.5px solid #e2dbcf}
+  .cal-status{font-size:.85rem;color:var(--muted);min-height:1.2em;margin-top:10px}
+  .pick{margin-top:24px;padding:22px;border-radius:18px;background:var(--olive);color:#f3eee4;display:none}
+  .pick.on{display:block;animation:up .3s ease}
+  @keyframes up{from{opacity:0;transform:translateY(8px)}}
+  .pick small{opacity:.7;letter-spacing:.12em;text-transform:uppercase;font-size:.7rem;font-weight:700}
+  .pick .f{font-family:var(--serif);font-size:1.6rem;margin:4px 0 4px;}.pick .f::first-letter{text-transform:uppercase}
+  .pick p{opacity:.8;font-size:.92rem;margin-bottom:16px}
+  .hint{margin-top:22px;padding:16px 18px;border-left:3px solid var(--terra);background:#f7efe4;border-radius:0 10px 10px 0;font-size:.92rem;color:#5b4a3b}
+  .pasos{list-style:none;margin-top:26px;display:grid;gap:14px}
+  .pasos li{display:flex;gap:14px;align-items:flex-start}
+  .pasos b{flex:none;width:30px;height:30px;border-radius:50%;background:var(--olive);color:#fff;display:grid;place-items:center;font-size:.85rem}
+
+  /* ---------- Incluye ---------- */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:34px 0 26px}
+  .stat{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:22px 18px}
+  .stat b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(1.6rem,4.4vw,2.6rem);line-height:1;color:var(--olive)}
+  .stat span{font-size:.85rem;color:var(--muted)}
+  .incl{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;list-style:none}
+  .incl li{display:flex;align-items:center;gap:12px;padding:15px 16px;border-radius:12px;background:#fff;border:1px solid var(--line);font-weight:600}
+  .incl svg{width:22px;height:22px;color:var(--moss);flex:none}
+  .cond{margin-top:22px;color:var(--muted);font-size:.92rem}
+
+  /* ---------- Ubicación ---------- */
+  #ubicacion{background:var(--olive);color:#efe9dd}
+  #ubicacion .eyebrow{color:#e3a27f}
+  #ubicacion .lead{color:#c8c4b6}
+  .ubi{display:grid;gap:30px;margin-top:30px}
+  @media(min-width:900px){.ubi{grid-template-columns:1.4fr 1fr;align-items:stretch}}
+  .mapa{border-radius:18px;overflow:hidden;min-height:320px;background:#33402c;position:relative}
+  .mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:saturate(.85)}
+  .mapa .ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:24px;color:#b9b6a8;
+    background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:34px 34px}
+  .ubi-info h3{font-family:var(--serif);font-weight:400;font-size:1.4rem;margin-bottom:8px}
+  .ubi-info p{color:#c8c4b6;margin-bottom:18px}
+  .ubi-btns{display:flex;flex-wrap:wrap;gap:10px}
+  .ubi-btns .btn-ghost{color:#efe9dd;border-color:rgba(239,233,221,.5)}
+  .ubi-btns .btn-ghost:hover{background:#efe9dd;color:var(--olive)}
+
+  /* ---------- Compartir ---------- */
+  .cta-share{text-align:center}
+  .cta-share h2{max-width:20ch;margin-left:auto;margin-right:auto}
+  .cta-share .lead{margin:0 auto 26px}
+  .share-btn{font:700 1.05rem var(--sans);background:transparent;border:0;border-bottom:2px solid var(--terra);color:var(--terra);padding:6px 2px;cursor:pointer}
+  .share-btn:hover{color:var(--olive);border-color:var(--olive)}
+  footer{padding:30px 0 100px;text-align:center;font-size:.82rem;color:var(--muted);border-top:1px solid var(--line)}
+
+  /* ---------- Modal compartir ---------- */
+  .modal{position:fixed;inset:0;z-index:90;background:rgba(20,26,16,.55);display:none;align-items:flex-end;justify-content:center}
+  .modal.on{display:flex}
+  .sheet{background:var(--paper);width:min(460px,100%);border-radius:22px 22px 0 0;padding:26px 22px 30px;animation:up .25s ease}
+  @media(min-width:600px){.modal{align-items:center}.sheet{border-radius:22px}}
+  .sheet h3{font-family:var(--serif);font-weight:400;font-size:1.5rem;margin-bottom:14px}
+  .sheet a,.sheet button.op{display:flex;align-items:center;gap:12px;width:100%;padding:15px 16px;margin-bottom:8px;border-radius:12px;border:1px solid var(--line);background:#fff;font:600 .98rem var(--sans);color:var(--ink);text-decoration:none;cursor:pointer}
+  .sheet a:hover,.sheet button.op:hover{border-color:var(--olive)}
+  .sheet .url{font-size:.8rem;color:var(--muted);word-break:break-all;margin:6px 0 14px}
+  .sheet .cerrar{background:none;border:0;color:var(--muted);font:600 .9rem var(--sans);margin-top:6px;cursor:pointer;width:100%;padding:8px}
+
+  /* ---------- WhatsApp flotante ---------- */
+  .wa-float{position:fixed;right:18px;bottom:18px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(0,0,0,.4);transition:transform .2s}
+  .wa-float:hover{transform:scale(1.07)}
+  .wa-float svg{width:30px;height:30px;color:#fff}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+<style>
+  .hero-bg{background-position:center;transform:none;animation:none;background-color:var(--olive)}
+  .foto-aviso{display:block;padding:16px;text-align:center;font:500 .85rem/1.5 var(--sans);overflow-wrap:anywhere}
+  .hero-foto-aviso{position:relative;margin:0 auto 30px;border:1px dashed #e3dacb80;border-radius:12px;color:var(--paper);max-width:520px}
+  .ficha{padding:38px 0;background:var(--olive);color:var(--paper)}
+  .ficha .eyebrow{color:#efb492}.ficha h2{font-size:clamp(1.7rem,4vw,2.3rem)}
+  .ficha-datos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:24px 0}
+  .ficha-datos dt{font-size:.8rem;color:#ded8ca;margin-bottom:6px}
+  .ficha-datos dd{font:400 clamp(1.3rem,3vw,2rem)/1.25 var(--serif);margin:0}
+  .ficha-servicios{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
+  .ficha-servicios li{padding:8px 14px;border:1px solid #e3dacb55;border-radius:999px;font-size:.9rem}
+  .gal-grupo{margin-top:32px}.gal-grupo h3{font:400 1.6rem var(--serif);color:var(--olive)}
+  .gal-grupo .gal{margin-top:14px;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:auto}
+  .gal-grupo .g{aspect-ratio:4/3;grid-column:auto!important;grid-row:auto!important;background:var(--paper);border:1px dashed var(--line);color:var(--ink)}
+  .g img{width:100%;height:100%;object-fit:cover}.g .foto-aviso{position:absolute;inset:0;display:grid;place-content:center;padding:24px 14px 48px;color:var(--muted)}
+  .g span{max-width:calc(100% - 28px)}.g.con-foto{color:#fff;border-style:solid}
+  .g:not(.con-foto)::after{display:none}
+  .retrato{margin:20px 0}.retrato-marco{aspect-ratio:3/4;max-width:300px;margin:auto;border:1px dashed var(--terra);background:var(--paper);display:grid;place-items:center;overflow:hidden;border-radius:8px}
+  .retrato img{width:100%;height:100%;object-fit:contain}.retrato figcaption{font-size:.85rem;text-align:center;margin-top:10px;color:var(--muted)}
+  .lb-img{display:grid;place-items:center;color:var(--paper)}.lb-img .foto-aviso{background:var(--olive);border-radius:12px;max-width:80%}
+  [hidden]{display:none!important}
+  @media(min-width:820px){.gal-grupo .gal{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media(max-width:599px){.ficha-datos{grid-template-columns:1fr;gap:18px}.ficha-datos>div{border-bottom:1px solid #e3dacb40;padding-bottom:16px}.gal-grupo .gal{grid-template-columns:1fr}.g{min-height:210px}.hero{min-height:90svh}.hero-body{width:100%}.hero-links .btn{white-space:normal;text-align:center;line-height:1.4}.hero-foto-aviso{margin-bottom:22px}.lb-cap{bottom:76px;padding:0 20px}.lb .p,.lb .n{top:auto;bottom:14px}.demo-flag{max-width:calc(100% - 100px)}}
+</style>
+</head>
+<body>
+<script src="config.js"></script>
+
+<!-- Iconos -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.48.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.56.93.95-3.47-.22-.36a9.38 9.38 0 0 1-1.44-5c0-5.19 4.23-9.42 9.43-9.42 2.52 0 4.88.98 6.66 2.76a9.36 9.36 0 0 1 2.76 6.67c0 5.2-4.23 9.42-9.43 9.42zm8.02-17.44A11.27 11.27 0 0 0 12.05.75C5.8.75.71 5.84.71 12.1c0 2 .52 3.95 1.52 5.67L.62 23.63l6-1.57a11.32 11.32 0 0 0 5.42 1.38h.01c6.25 0 11.34-5.09 11.34-11.35 0-3.03-1.18-5.88-3.32-8.03z"/></symbol>
+  <symbol id="share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" opacity=".25"/><path d="m8 12.5 2.6 2.6L16 9.5"/></symbol>
+</svg>
+
+<!-- 1. PORTADA -->
+<header class="hero" id="inicio">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="wrap topbar">
+    <div class="marca" data-c="nombre"></div>
+    <button class="share-top" data-share type="button">Compartir <svg class="i"><use href="#share"/></svg></button>
+  </div>
+  <div class="wrap hero-body">
+    <div class="foto-aviso hero-foto-aviso" id="portadaAviso">Fotografía panorámica del recinto pendiente · fotos/portada.jpg</div>
+    <h1 data-c="nombre">Mi Pimiento</h1>
+    <p class="eslogan" data-c="eslogan">Donde los recuerdos florecen</p>
+    <p class="tag" data-c="bajada"></p>
+    <div class="precio"><b data-c="precio"></b><span data-c="horario"></span></div>
+    <div class="hero-links"><a class="btn btn-light" href="#disponibilidad">Ver disponibilidad <span aria-hidden="true">→</span></a><a class="historia-link" href="#historia">Nuestra historia</a></div>
+  </div>
+</header>
+
+<section class="ficha" aria-labelledby="fichaTitulo">
+  <div class="wrap">
+    <div class="eyebrow">Tu encuentro en Mi Pimiento</div>
+    <h2 id="fichaTitulo">Un lugar para compartir en familia.</h2>
+    <dl class="ficha-datos">
+      <div><dt>Capacidad máxima</dt><dd>30 personas</dd></div>
+      <div><dt>Horario</dt><dd>12:00 a 20:00 horas</dd></div>
+      <div><dt>Valor referencial</dt><dd>$250.000 CLP</dd></div>
+    </dl>
+    <ul class="ficha-servicios" aria-label="Servicios incluidos"><li>Piscina</li><li>Baños</li><li>Parrilla</li><li>Cocina a leña</li></ul>
+  </div>
+</section>
+
+<!-- 2. GALERÍA -->
+<section id="galeria">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">El lugar</div>
+      <h2>Piscina, quincho y naturaleza.</h2>
+      <p class="lead">Un espacio privado y tranquilo para celebrar con los tuyos, sin compartir el lugar con nadie más.</p>
+    </div>
+    <div id="gal"></div>
+  </div>
+</section>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Galería">
+  <button class="x" aria-label="Cerrar">×</button>
+  <button class="p" aria-label="Anterior">‹</button>
+  <div class="lb-img" id="lbImg"></div>
+  <button class="n" aria-label="Siguiente">›</button>
+  <div class="lb-cap" id="lbCap"></div>
+</div>
+
+<section id="historia" class="historia" aria-labelledby="historiaTitulo">
+  <div class="wrap historia-grid">
+    <div class="historia-texto reveal">
+      <div class="eyebrow">Nuestras raíces</div>
+      <h2 id="historiaTitulo">Nuestra historia</h2>
+      <p>Mi Pimiento guarda una historia de familia. María Inah heredó este fundo y lo disfrutó durante años junto a los suyos, haciendo de este lugar un espacio para encontrarse y compartir.</p>
+      <p>Su retrato se conserva aquí, como parte de la memoria del lugar y de los momentos vividos en familia. Hoy, Mi Pimiento continúa esa tradición de encuentros familiares y abre sus espacios para que otras familias creen sus propios recuerdos.</p>
+    </div>
+    <aside class="dedicatoria reveal" aria-label="Dedicatoria a María Inah">
+      <div class="eyebrow">En homenaje a María Inah</div>
+      <figure class="retrato">
+        <div class="retrato-marco" id="retratoMarco"><span class="foto-aviso">Fotografía del retrato de María Inah pendiente · fotos/maria-inah.jpg</span></div>
+        <figcaption>María Inah · Memoria de nuestra familia</figcaption>
+      </figure>
+      <p>Donde los recuerdos florecen</p>
+      <small>Una historia familiar que sigue reuniéndonos.</small>
+    </aside>
+  </div>
+</section>
+
+<!-- 3. DISPONIBILIDAD -->
+<section id="disponibilidad">
+  <div class="wrap disp">
+    <div class="reveal">
+      <div class="eyebrow">Agenda</div>
+      <h2>Elige tu fecha.</h2>
+      <p class="lead">Las fechas en verde están libres. Toca una y nos escribes directo por WhatsApp con la fecha ya indicada.</p>
+      <ol class="pasos">
+        <li><b>1</b><span>Revisa el calendario y elige un día disponible.</span></li>
+        <li><b>2</b><span>Toca <strong>Consultar por WhatsApp</strong>: el mensaje se arma solo.</span></li>
+        <li><b>3</b><span>Te confirmamos y reservamos la fecha para ti.</span></li>
+      </ol>
+      <div class="hint">Una fecha queda reservada solo una vez confirmada por nosotros.</div>
+    </div>
+
+    <div>
+      <div class="cal-card reveal">
+        <div class="cal-head">
+          <h3 id="mesTitulo"></h3>
+          <div class="nav">
+            <button type="button" id="prev" aria-label="Mes anterior">‹</button>
+            <button type="button" id="next" aria-label="Mes siguiente">›</button>
+          </div>
+        </div>
+        <div id="cal" aria-live="polite"></div>
+        <div class="leyenda">
+          <span><i class="l-ok"></i>Disponible</span>
+          <span><i class="l-res"></i>Reservado</span>
+          <span><i class="l-pas"></i>Fecha pasada</span>
+        </div>
+        <div class="cal-status" id="calStatus">Cargando disponibilidad…</div>
+      </div>
+
+      <div class="pick" id="pick" aria-live="polite">
+        <small>Fecha seleccionada · disponible</small>
+        <div class="f" id="pickFecha"></div>
+        <p><span data-c="horario"></span> · hasta 30 personas · <span data-c="precio"></span></p>
+        <a class="btn btn-wa" id="pickWa" href="#" target="_blank" rel="noopener"><svg class="i"><use href="#wa"/></svg> Consultar por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. QUÉ INCLUYE -->
+<section id="incluye">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Qué incluye</div>
+      <h2>Todo listo para tu evento.</h2>
+      <p class="lead">Arriendo exclusivo del espacio, de <span data-c="horario"></span>, por <span data-c="precio"></span>.</p>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><b>30</b><span>personas máximo</span></div>
+      <div class="stat"><b>15×7</b><span>m de quincho</span></div>
+      <div class="stat"><b>3,5×7</b><span>m de piscina</span></div>
+    </div>
+    <ul class="incl reveal">
+      <li><svg><use href="#chk"/></svg>Hasta 30 personas</li>
+      <li><svg><use href="#chk"/></svg>Quincho 15 × 7 m</li>
+      <li><svg><use href="#chk"/></svg>Piscina 3,5 × 7 m</li>
+      <li><svg><use href="#chk"/></svg>Parrilla</li>
+      <li><svg><use href="#chk"/></svg>Cocina a leña</li>
+      <li><svg><use href="#chk"/></svg>Baños</li>
+      <li><svg><use href="#chk"/></svg>Estacionamiento</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 5. UBICACIÓN -->
+<section id="ubicacion">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Ubicación</div>
+      <h2>Cómo llegar.</h2>
+    </div>
+    <div class="ubi">
+      <div class="mapa reveal" id="mapa"></div>
+      <div class="ubi-info reveal">
+        <h3 data-c="direccion"></h3>
+        <p data-c="comoLlegar"></p>
+        <div class="ubi-btns">
+          <a class="btn btn-ghost" id="gmaps" target="_blank" rel="noopener">Abrir en Google Maps</a>
+          <a class="btn btn-ghost" id="waze" target="_blank" rel="noopener">Abrir en Waze</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. COMPARTIR -->
+<section class="cta-share">
+  <div class="wrap reveal">
+    <div class="eyebrow">¿Lo estás organizando con alguien?</div>
+    <h2>Envía este lugar a tu grupo.</h2>
+    <p class="lead">Comparte la web por WhatsApp o redes para que todos vean las fotos y las fechas libres.</p>
+    <button class="share-btn" data-share type="button">Compartir este lugar ↗</button>
+  </div>
+</section>
+
+<footer><div class="wrap"><span data-c="nombre"></span> · <span data-c="bajada"></span><p data-c="eslogan"></p><a href="https://mipimiento.cl/">mipimiento.cl</a></div></footer>
+
+<a class="wa-float" id="waFloat" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg><use href="#wa"/></svg></a>
+
+<div class="modal" id="shareModal" role="dialog" aria-modal="true" aria-label="Compartir">
+  <div class="sheet">
+    <h3>Compartir este lugar</h3>
+    <a id="shWa" target="_blank" rel="noopener"><svg class="i" style="color:var(--wa)"><use href="#wa"/></svg>Enviar por WhatsApp</a>
+    <a id="shFb" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" style="color:#1877f2"><path fill="currentColor" d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg>Compartir en Facebook</a>
+    <button class="op" id="shCopy" type="button"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copiar enlace</span></button>
+    <div class="url" id="shUrl"></div>
+    <button class="cerrar" type="button" id="shClose">Cerrar</button>
+  </div>
+</div>
+
+<script src="calendario.js"></script>
+<script>
+(function(){
+  const C = Cal.C;
+
+  /* ---------- Textos desde config ---------- */
+  document.querySelectorAll("[data-c]").forEach(el => el.textContent = C[el.dataset.c] || "");
+  document.title = `${C.nombre} | Centro de Eventos`;
+  if (!Cal.configurado) {
+    const f = document.createElement("div"); f.className = "demo-flag";
+    f.textContent = "Modo demo · conecta Firebase en config.js"; document.body.appendChild(f);
+  }
+
+  /* ---------- WhatsApp ---------- */
+  const waLink = (txt) => `https://wa.me/${C.whatsapp}?text=${encodeURIComponent(txt)}`;
+  document.getElementById("waFloat").href = waLink(`Hola! Vi la web de ${C.nombre} y quiero consultar por una fecha para un evento.`);
+
+  /* ---------- Portada + galería (si falta una foto, se ve un fondo de color) ---------- */
+  document.getElementById("heroBg").style.setProperty("--portada", `url("${C.portada}")`);
+  const tonos = [
+    "linear-gradient(160deg,#2f8aa0,#1d5866)","linear-gradient(160deg,#7a5a3a,#3e2d1e)","linear-gradient(160deg,#b9603a,#5e2e1a)",
+    "linear-gradient(160deg,#8a6d4b,#43321f)","linear-gradient(160deg,#5a6b3e,#2b351e)","linear-gradient(160deg,#d18b5a,#2f6f7d)",
+    "linear-gradient(160deg,#6f8f4f,#34472a)","linear-gradient(160deg,#8f8a7d,#4b4840)"
+  ];
+  const gal = document.getElementById("gal");
+  const disponibles = new Set();
+  const portada = new Image();
+  portada.onload = () => { document.getElementById("portadaAviso").hidden = true; };
+  portada.src = C.portada;
+  const retrato = new Image();
+  retrato.alt = "Retrato de María Inah conservado en Mi Pimiento";
+  retrato.onload = () => document.getElementById("retratoMarco").replaceChildren(retrato);
+  retrato.src = C.retrato;
+  const grupos = new Map();
+  ["Piscina", "Quincho", "Jardines", "Instalaciones"].forEach((categoria) => {
+    const grupo = document.createElement("div"); grupo.className = "gal-grupo";
+    const titulo = document.createElement("h3"); titulo.textContent = categoria;
+    const rejilla = document.createElement("div"); rejilla.className = "gal";
+    grupo.append(titulo, rejilla); gal.appendChild(grupo); grupos.set(categoria, rejilla);
+  });
+  C.fotos.forEach((f, i) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "g reveal";
+    b.setAttribute("aria-label", `Ver foto: ${f.titulo}`);
+    const aviso = document.createElement("small"); aviso.className = "foto-aviso";
+    aviso.textContent = `Fotografía pendiente · ${f.src}`;
+    const titulo = document.createElement("span"); titulo.textContent = f.titulo;
+    b.append(aviso, titulo);
+    const img = new Image(); img.alt = f.titulo; img.loading = "lazy"; img.decoding = "async";
+    img.onload = () => { disponibles.add(i); aviso.remove(); b.prepend(img); b.classList.add("con-foto"); if (cur === i && lb.classList.contains("on")) pintarFoto(); };
+    img.src = f.src;
+    b.onclick = () => abrir(i);
+    (grupos.get(f.categoria) || grupos.get("Instalaciones")).appendChild(b);
+  });
+  const lb = document.getElementById("lb"), lbImg = document.getElementById("lbImg"), lbCap = document.getElementById("lbCap");
+  let cur = 0;
+  function pintarFoto(){
+    const f = C.fotos[cur];
+    lbImg.style.backgroundImage = disponibles.has(cur) ? `url("${f.src}")` : "none";
+    lbImg.replaceChildren();
+    if (!disponibles.has(cur)) { const aviso = document.createElement("span"); aviso.className = "foto-aviso"; aviso.textContent = `Fotografía pendiente · ${f.src}`; lbImg.appendChild(aviso); }
+    lbCap.textContent = `${f.titulo} · ${cur+1}/${C.fotos.length}`;
+  }
+  function abrir(i){ cur = (i + C.fotos.length) % C.fotos.length; pintarFoto(); lb.classList.add("on"); }
+  lb.querySelector(".x").onclick = () => lb.classList.remove("on");
+  lb.querySelector(".p").onclick = () => abrir(cur - 1);
+  lb.querySelector(".n").onclick = () => abrir(cur + 1);
+  lb.onclick = (e) => { if (e.target === lb) lb.classList.remove("on"); };
+  document.addEventListener("keydown", e => {
+    if (!lb.classList.contains("on")) return;
+    if (e.key === "Escape") lb.classList.remove("on");
+    if (e.key === "ArrowLeft") abrir(cur - 1);
+    if (e.key === "ArrowRight") abrir(cur + 1);
+  });
+  // swipe en móvil
+  let sx = 0; lb.addEventListener("touchstart", e => sx = e.touches[0].clientX, {passive:true});
+  lb.addEventListener("touchend", e => { const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 50) abrir(cur + (dx < 0 ? 1 : -1)); });
+
+  /* ---------- Calendario ---------- */
+  const elCal = document.getElementById("cal"), titulo = document.getElementById("mesTitulo"), status = document.getElementById("calStatus");
+  const prev = document.getElementById("prev"), next = document.getElementById("next");
+  const pick = document.getElementById("pick"), pickFecha = document.getElementById("pickFecha"), pickWa = document.getElementById("pickWa");
+  const h = Cal.hoy();
+  const min = new Date(h.getFullYear(), h.getMonth(), 1);
+  const max = new Date(h.getFullYear(), h.getMonth() + C.mesesVisibles - 1, 1);
+  let mes = new Date(min), mapa = {}, sel = null;
+
+  function pintar(){
+    titulo.textContent = `${Cal.MESES[mes.getMonth()]} ${mes.getFullYear()}`;
+    prev.disabled = mes <= min; next.disabled = mes >= max;
+    Cal.render({ el: elCal, mapa, mes, seleccion: sel, onSelect: elegir });
+    // cuenta de fechas libres del mes
+    let libres = 0; const dm = new Date(mes.getFullYear(), mes.getMonth()+1, 0).getDate();
+    for (let d=1; d<=dm; d++) if (Cal.estadoDe(new Date(mes.getFullYear(), mes.getMonth(), d), mapa) === "disponible") libres++;
+    status.textContent = libres ? `${libres} ${libres===1?"fecha disponible":"fechas disponibles"} este mes` : "Sin fechas disponibles este mes. Revisa el siguiente →";
+  }
+  function elegir(f){
+    sel = f; pintar();
+    const d = Cal.desdeIso(f), largo = Cal.largo(d);
+    pickFecha.textContent = largo;
+    pickWa.href = waLink(`Hola! Vi la web de ${C.nombre} y quiero consultar por el ${largo} (${C.horario}). ¿Está disponible?`);
+    pick.classList.add("on");
+    if (window.innerWidth < 900) pick.scrollIntoView({behavior:"smooth", block:"center"});
+  }
+  prev.onclick = () => { mes.setMonth(mes.getMonth()-1); pintar(); };
+  next.onclick = () => { mes.setMonth(mes.getMonth()+1); pintar(); };
+
+  pintar();
+  Cal.suscribir((m, err) => {
+    mapa = m;
+    if (sel && Cal.estadoDe(Cal.desdeIso(sel), mapa) !== "disponible") { sel = null; pick.classList.remove("on"); }
+    pintar();
+    if (err) status.textContent = "No pudimos cargar la agenda. Escríbenos por WhatsApp.";
+  }).catch(e => { console.error(e); status.textContent = "No pudimos cargar la agenda. Escríbenos por WhatsApp."; });
+
+  /* ---------- Mapa ---------- */
+  const q = `${C.lat},${C.lng}`;
+  document.getElementById("gmaps").href = `https://www.google.com/maps/search/?api=1&query=${q}`;
+  document.getElementById("waze").href = `https://waze.com/ul?ll=${q}&navigate=yes`;
+  const mapa_ = document.getElementById("mapa");
+  if (Cal.configurado) {
+    mapa_.innerHTML = `<iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa" src="https://www.google.com/maps?q=${q}&z=15&output=embed"></iframe>`;
+  } else {
+    mapa_.innerHTML = `<div class="ph"><div><div style="font-size:2rem">📍</div>El mapa de Google se muestra aquí<br>al publicar el sitio.</div></div>`;
+  }
+
+  /* ---------- Compartir ---------- */
+  const url = location.href.split("#")[0];
+  const msgShare = `Mira este lugar para eventos: ${C.nombre} — ${C.bajada}. Piscina, quincho y fechas disponibles aquí: ${url}`;
+  const modal = document.getElementById("shareModal");
+  document.getElementById("shWa").href = `https://wa.me/?text=${encodeURIComponent(msgShare)}`;
+  document.getElementById("shFb").href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+  document.getElementById("shUrl").textContent = url;
+  document.querySelectorAll("[data-share]").forEach(b => b.onclick = async () => {
+    if (navigator.share) {
+      try { await navigator.share({ title: C.nombre, text: `${C.nombre} — ${C.bajada}`, url }); return; }
+      catch (e) { if (e.name === "AbortError") return; }
+    }
+    modal.classList.add("on");
+  });
+  document.getElementById("shClose").onclick = () => modal.classList.remove("on");
+  modal.onclick = e => { if (e.target === modal) modal.classList.remove("on"); };
+  document.getElementById("shCopy").onclick = async (e) => {
+    const s = e.currentTarget.querySelector("span");
+    try { await navigator.clipboard.writeText(url); s.textContent = "¡Enlace copiado!"; }
+    catch { s.textContent = "Copia el enlace de abajo"; }
+    setTimeout(() => s.textContent = "Copiar enlace", 2200);
+  };
+
+  /* ---------- Animación de entrada ---------- */
+  const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting){ x.target.classList.add("in"); io.unobserve(x.target);} }), {threshold:.12});
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>

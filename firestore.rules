@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Agenda pública: cualquiera puede LEER el estado de las fechas.
+    // Solo el administrador puede bloquear / liberar.
+    match /fechas/{fecha} {
+      allow read: if true;
+      // Liberar fecha = borrar el documento
+      allow delete: if request.auth != null
+                    && request.auth.token.email in ['geocalculo@gmail.com'];   // agrega más correos si hace falta
+      // Bloquear fecha: el documento solo puede contener el estado (nada de nombres ni tipo de evento)
+      allow create, update: if request.auth != null
+                   && request.auth.token.email in ['geocalculo@gmail.com']
+                   && fecha.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+                   && request.resource.data.keys().hasOnly(['estado', 'actualizado'])
+                   && request.resource.data.estado == 'reservado';
+    }
+
+    // Todo lo demás, cerrado
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
