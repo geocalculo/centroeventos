@@ -33,7 +33,7 @@ El dominio es una referencia de marca y metadatos; su conexión al alojamiento y
 ## Puesta en marcha (≈15 min)
 
 1. **Fotos**: copia 1 portada + 8 fotos en `fotos/` con estos nombres (o cambia los nombres en `config.js`):
-   `portada.jpg, piscina.png, quincho.jpg, cocina-lena.jpg, quincho-interior.jpg, piscina-tarde.jpg, jardin.jpg, estacionamiento.jpg`
+   `portada.jpg, piscina1.png, quincho.jpg, cocina-lena.jpg, quincho-interior.jpg, piscina-tarde.jpg, jardin.jpg, estacionamiento.jpg`
    Recomendado: 1600 px de ancho, JPG/WebP, menos de 300 KB cada una (squoosh.app las optimiza gratis).
 2. **config.js**: pon el nombre, tu WhatsApp (`569XXXXXXXX`).
 3. **Firebase** (consola.firebase.google.com):
@@ -66,12 +66,12 @@ Mientras Firebase no esté configurado, la web pública permite elegir fechas de
 
 ## Fotografías comerciales
 
-La portada utiliza `fotos/piscina.png`. La galería muestra las seis fotos disponibles, agrupadas en Piscina, Salón, Jardines e Instalaciones. Solo se incluyen en la galería archivos disponibles; agrega nuevas entradas a `config.js` al incorporar más fotos.
+La portada utiliza `fotos/piscina1.png`. La galería muestra las seis fotos disponibles, agrupadas en Piscina, Salón, Jardines e Instalaciones. Solo se incluyen en la galería archivos disponibles; agrega nuevas entradas a `config.js` al incorporar más fotos.
 
 Copia las fotos reales dentro de `fotos/`. Los espacios pendientes se reemplazan al cargar los archivos y recargar la página con Live Server.
 
 - `portada.jpg`: panorámica del recinto; recomendado 2400 × 1350 px, sujeto principal centrado para el recorte móvil.
-- `piscina.png`, `piscina-tarde.jpg`: piscina.
+- `piscina1.png`, `piscina-tarde.jpg`: piscina.
 - `quincho.jpg`, `quincho-interior.jpg`: quincho.
 - `jardin.jpg`: jardines.
 - `cocina-lena.jpg`, `banos.jpg`, `estacionamiento.jpg`: instalaciones.
