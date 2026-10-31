@@ -4,7 +4,7 @@
 
 ## Vista local en VS Code
 
-Abre esta carpeta en VS Code. Con la extensión Live Server instalada, haz clic derecho sobre `index.html` y selecciona **Open with Live Server**. Abre `admin.html` en la misma dirección para revisar el panel demo. No se necesita compilación ni configurar Firebase para visualizar el sitio.
+Abre esta carpeta en VS Code. Con la extensión Live Server instalada, haz clic derecho sobre `index.html` y selecciona **Open with Live Server**. Abre `admin.html` en la misma dirección para revisar el panel demo. No se necesita compilación ni configurar Firebase para visualizar el sitio. El calendario público permite consultar fechas desde mañana (hora de Chile); sin Firebase, la disponibilidad se confirma personalmente por WhatsApp.
 
 El dominio es una referencia de marca y metadatos; su conexión al alojamiento y DNS queda pendiente. Se incluyen las seis fotos disponibles de `fotos/`; el contacto real sigue pendiente. La ubicación se entrega personalmente a cada cliente. La sección Nuestra historia está dedicada a María Inah Echegaray Aguirre, nacida en Copiapó en 1904 y fallecida en Copiapó a los 85 años, sin fotografía.
 
@@ -62,7 +62,7 @@ El texto se edita en `index.html` (busca `Vi la web de`).
 
 ## Modo demo
 
-Mientras `firebase.apiKey` esté vacío, la web muestra fechas de ejemplo y el admin guarda los cambios solo en el navegador. Aparece una etiqueta amarilla “Modo demo” para que no se olvide.
+Mientras Firebase no esté configurado, la web pública permite elegir fechas desde mañana para consultar por WhatsApp, sin reservas ficticias ni aviso de demo. No representa una agenda sincronizada. El admin conserva su modo demo, con aviso y cambios solo en su navegador; estos no afectan el calendario público. Para administrar reservas reales compartidas, configura Firebase.
 
 ## Fotografías comerciales
 

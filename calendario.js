@@ -15,7 +15,12 @@
 
   const pad = (n) => String(n).padStart(2, "0");
   const iso = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
-  const hoy = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d; };
+  const hoy = () => {
+    const partes = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Santiago", year: "numeric", month: "2-digit", day: "2-digit" }).formatToParts(new Date());
+    const valor = (tipo) => Number(partes.find(p => p.type === tipo).value);
+    return new Date(valor("year"), valor("month") - 1, valor("day"));
+  };
+  const manana = () => { const d = hoy(); d.setDate(d.getDate() + 1); return d; };
   const desdeIso = (s) => { const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
   const largo = (d) => `${DIAS[d.getDay()]} ${d.getDate()} de ${MESES[d.getMonth()]} de ${d.getFullYear()}`;
 
@@ -82,7 +87,7 @@
 
   /* ---------- Estado de un día ---------- */
   function estadoDe(d, mapa) {
-    if (d < hoy()) return "pasada";
+    if (d < manana()) return "pasada";
     if (!C.diasHabilitados.includes(d.getDay())) return "cerrado";
     return mapa[iso(d)] === "reservado" ? "reservado" : "disponible";
   }
@@ -95,7 +100,7 @@
     const primero = new Date(y, mo, 1);
     const offset = (primero.getDay() + 6) % 7; // semana parte el lunes
     const diasMes = new Date(y, mo + 1, 0).getDate();
-    const etiquetas = { disponible: "Disponible", reservado: "Reservado", pasada: "Fecha pasada", cerrado: "No disponible" };
+    const etiquetas = { disponible: !configurado && !admin ? "Consultar disponibilidad" : "Disponible", reservado: "Reservado", pasada: "No disponible para reservar", cerrado: "No disponible" };
 
     let h = `<div class="cal-grid" role="grid">`;
     DIAS_CORTOS.forEach((d) => (h += `<div class="cal-dow" role="columnheader">${d}</div>`));
@@ -117,5 +122,5 @@
     );
   }
 
-  window.Cal = { C, configurado, MESES, DIAS, iso, hoy, desdeIso, largo, suscribir, setEstado, estadoDe, render, initFirebase, FB };
+  window.Cal = { C, configurado, MESES, DIAS, iso, hoy, manana, desdeIso, largo, suscribir, setEstado, estadoDe, render, initFirebase, FB };
 })();

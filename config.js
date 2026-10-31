@@ -33,7 +33,7 @@ window.SITE_CONFIG = {
   ],
 
   // Firebase: pega aquí la config de tu proyecto (Consola Firebase → Configuración del proyecto → Tus apps → Web).
-  // Si lo dejas vacío, el sitio funciona en MODO DEMO con fechas de ejemplo.
+  // Si lo dejas vacío, la web permite consultar fechas por WhatsApp, sin agenda sincronizada.
   firebase: {
     apiKey: "",
     authDomain: "",
