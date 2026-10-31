@@ -13,12 +13,6 @@ window.SITE_CONFIG = {
   // WhatsApp: código país + número, sin "+", espacios ni guiones (ej: 56912345678)
   whatsapp: "56900000000",
 
-  // Ubicación
-  direccion: "Dirección por definir, Comuna, Región",
-  comoLlegar: "Indicaciones breves: referencias, tipo de camino, tiempo desde el centro, etc.",
-  lat: -33.4489,   // reemplaza por las coordenadas reales (clic derecho en Google Maps → copiar)
-  lng: -70.6693,
-
   // Días de la semana que arriendas (0=domingo, 1=lunes … 6=sábado).
   // Los días que no estén aquí aparecen como "no disponible".
   // Ej. solo fines de semana: [5, 6, 0]
@@ -29,7 +23,6 @@ window.SITE_CONFIG = {
 
   // Fotos (pon los archivos en la carpeta /fotos). Recomendado: JPG/WebP de 1600 px de ancho, < 300 KB.
   portada: "fotos/piscina.png",
-  retrato: "fotos/maria-inah.jpg",
   fotos: [
     { src: "fotos/piscina.png", titulo: "Piscina y áreas verdes", categoria: "Piscina" },
     { src: "fotos/Edificio de madera en jardín soleado.png", titulo: "Salón de madera junto al jardín", categoria: "Salón" },

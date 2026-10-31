@@ -143,22 +143,6 @@
   .incl svg{width:22px;height:22px;color:var(--moss);flex:none}
   .cond{margin-top:22px;color:var(--muted);font-size:.92rem}
 
-  /* ---------- Ubicación ---------- */
-  #ubicacion{background:var(--olive);color:#efe9dd}
-  #ubicacion .eyebrow{color:#e3a27f}
-  #ubicacion .lead{color:#c8c4b6}
-  .ubi{display:grid;gap:30px;margin-top:30px}
-  @media(min-width:900px){.ubi{grid-template-columns:1.4fr 1fr;align-items:stretch}}
-  .mapa{border-radius:18px;overflow:hidden;min-height:320px;background:#33402c;position:relative}
-  .mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:saturate(.85)}
-  .mapa .ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:24px;color:#b9b6a8;
-    background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:34px 34px}
-  .ubi-info h3{font-family:var(--serif);font-weight:400;font-size:1.4rem;margin-bottom:8px}
-  .ubi-info p{color:#c8c4b6;margin-bottom:18px}
-  .ubi-btns{display:flex;flex-wrap:wrap;gap:10px}
-  .ubi-btns .btn-ghost{color:#efe9dd;border-color:rgba(239,233,221,.5)}
-  .ubi-btns .btn-ghost:hover{background:#efe9dd;color:var(--olive)}
-
   /* ---------- Compartir ---------- */
   .cta-share{text-align:center}
   .cta-share h2{max-width:20ch;margin-left:auto;margin-right:auto}
@@ -204,8 +188,6 @@
   .g img{width:100%;height:100%;object-fit:cover}.g .foto-aviso{position:absolute;inset:0;display:grid;place-content:center;padding:24px 14px 48px;color:var(--muted)}
   .g span{max-width:calc(100% - 28px)}.g.con-foto{color:#fff;border-style:solid}
   .g:not(.con-foto)::after{display:none}
-  .retrato{margin:20px 0}.retrato-marco{aspect-ratio:3/4;max-width:300px;margin:auto;border:1px dashed var(--terra);background:var(--paper);display:grid;place-items:center;overflow:hidden;border-radius:8px}
-  .retrato img{width:100%;height:100%;object-fit:contain}.retrato figcaption{font-size:.85rem;text-align:center;margin-top:10px;color:var(--muted)}
   .lb-img{display:grid;place-items:center;color:var(--paper)}.lb-img .foto-aviso{background:var(--olive);border-radius:12px;max-width:80%}
   [hidden]{display:none!important}
   @media(min-width:820px){.gal-grupo .gal{grid-template-columns:repeat(3,minmax(0,1fr))}}
@@ -277,15 +259,11 @@
     <div class="historia-texto reveal">
       <div class="eyebrow">Nuestras raíces</div>
       <h2 id="historiaTitulo">Nuestra historia</h2>
-      <p>Mi Pimiento guarda una historia de familia. María Inah heredó este fundo y lo disfrutó durante años junto a los suyos, haciendo de este lugar un espacio para encontrarse y compartir.</p>
-      <p>Su retrato se conserva aquí, como parte de la memoria del lugar y de los momentos vividos en familia. Hoy, Mi Pimiento continúa esa tradición de encuentros familiares y abre sus espacios para que otras familias creen sus propios recuerdos.</p>
+      <p>Mi Pimiento guarda una historia de familia. María Inah Echegaray Aguirre nació en Copiapó en 1904 y falleció en Copiapó a los 85 años. Heredó este fundo y lo disfrutó durante años junto a los suyos, haciendo de este lugar un espacio para encontrarse y compartir.</p>
+      <p>Su memoria forma parte de este lugar y de los momentos vividos en familia. Hoy, Mi Pimiento continúa esa tradición de encuentros familiares y abre sus espacios para que otras familias creen sus propios recuerdos.</p>
     </div>
-    <aside class="dedicatoria reveal" aria-label="Dedicatoria a María Inah">
-      <div class="eyebrow">En homenaje a María Inah</div>
-      <figure class="retrato">
-        <div class="retrato-marco" id="retratoMarco"><span class="foto-aviso">Fotografía del retrato de María Inah pendiente · fotos/maria-inah.jpg</span></div>
-        <figcaption>María Inah · Memoria de nuestra familia</figcaption>
-      </figure>
+    <aside class="dedicatoria reveal" aria-label="Dedicatoria a María Inah Echegaray Aguirre">
+      <div class="eyebrow">En homenaje a María Inah Echegaray Aguirre</div>
       <p>Donde los recuerdos florecen</p>
       <small>Una historia familiar que sigue reuniéndonos.</small>
     </aside>
@@ -360,27 +338,6 @@
   </div>
 </section>
 
-<!-- 5. UBICACIÓN -->
-<section id="ubicacion">
-  <div class="wrap">
-    <div class="reveal">
-      <div class="eyebrow">Ubicación</div>
-      <h2>Cómo llegar.</h2>
-    </div>
-    <div class="ubi">
-      <div class="mapa reveal" id="mapa"></div>
-      <div class="ubi-info reveal">
-        <h3 data-c="direccion"></h3>
-        <p data-c="comoLlegar"></p>
-        <div class="ubi-btns">
-          <a class="btn btn-ghost" id="gmaps" target="_blank" rel="noopener">Abrir en Google Maps</a>
-          <a class="btn btn-ghost" id="waze" target="_blank" rel="noopener">Abrir en Waze</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- 6. COMPARTIR -->
 <section class="cta-share">
   <div class="wrap reveal">
@@ -435,10 +392,6 @@
   const portada = new Image();
   portada.onload = () => { document.getElementById("portadaAviso").hidden = true; };
   portada.src = C.portada;
-  const retrato = new Image();
-  retrato.alt = "Retrato de María Inah conservado en Mi Pimiento";
-  retrato.onload = () => document.getElementById("retratoMarco").replaceChildren(retrato);
-  retrato.src = C.retrato;
   const grupos = new Map();
   [...new Set(C.fotos.map(f => f.categoria || "Instalaciones"))].forEach((categoria) => {
     const grupo = document.createElement("div"); grupo.className = "gal-grupo";
@@ -521,17 +474,6 @@
     pintar();
     if (err) status.textContent = "No pudimos cargar la agenda. Escríbenos por WhatsApp.";
   }).catch(e => { console.error(e); status.textContent = "No pudimos cargar la agenda. Escríbenos por WhatsApp."; });
-
-  /* ---------- Mapa ---------- */
-  const q = `${C.lat},${C.lng}`;
-  document.getElementById("gmaps").href = `https://www.google.com/maps/search/?api=1&query=${q}`;
-  document.getElementById("waze").href = `https://waze.com/ul?ll=${q}&navigate=yes`;
-  const mapa_ = document.getElementById("mapa");
-  if (Cal.configurado) {
-    mapa_.innerHTML = `<iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa" src="https://www.google.com/maps?q=${q}&z=15&output=embed"></iframe>`;
-  } else {
-    mapa_.innerHTML = `<div class="ph"><div><div style="font-size:2rem">📍</div>El mapa de Google se muestra aquí<br>al publicar el sitio.</div></div>`;
-  }
 
   /* ---------- Compartir ---------- */
   const url = location.href.split("#")[0];
