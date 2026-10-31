@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://mipimiento.cl/">
 <meta property="og:title" content="Mi Pimiento | Centro de Eventos">
 <meta property="og:description" content="Donde los recuerdos florecen. Un lugar para encuentros familiares, con piscina, quincho y áreas verdes.">
-<meta property="og:image" content="https://mipimiento.cl/fotos/portada.jpg">
+<meta property="og:image" content="https://mipimiento.cl/fotos/piscina.png">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#24301f">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -230,7 +230,7 @@
     <button class="share-top" data-share type="button">Compartir <svg class="i"><use href="#share"/></svg></button>
   </div>
   <div class="wrap hero-body">
-    <div class="foto-aviso hero-foto-aviso" id="portadaAviso">Fotografía panorámica del recinto pendiente · fotos/portada.jpg</div>
+    <div class="foto-aviso hero-foto-aviso" id="portadaAviso">Fotografía del recinto no disponible</div>
     <h1 data-c="nombre">Mi Pimiento</h1>
     <p class="eslogan" data-c="eslogan">Donde los recuerdos florecen</p>
     <p class="tag" data-c="bajada"></p>
@@ -440,7 +440,7 @@
   retrato.onload = () => document.getElementById("retratoMarco").replaceChildren(retrato);
   retrato.src = C.retrato;
   const grupos = new Map();
-  ["Piscina", "Quincho", "Jardines", "Instalaciones"].forEach((categoria) => {
+  [...new Set(C.fotos.map(f => f.categoria || "Instalaciones"))].forEach((categoria) => {
     const grupo = document.createElement("div"); grupo.className = "gal-grupo";
     const titulo = document.createElement("h3"); titulo.textContent = categoria;
     const rejilla = document.createElement("div"); rejilla.className = "gal";
@@ -455,7 +455,8 @@
     const titulo = document.createElement("span"); titulo.textContent = f.titulo;
     b.append(aviso, titulo);
     const img = new Image(); img.alt = f.titulo; img.loading = "lazy"; img.decoding = "async";
-    img.onload = () => { disponibles.add(i); aviso.remove(); b.prepend(img); b.classList.add("con-foto"); if (cur === i && lb.classList.contains("on")) pintarFoto(); };
+    img.onload = () => { disponibles.add(i); aviso.remove(); b.classList.add("con-foto"); if (cur === i && lb.classList.contains("on")) pintarFoto(); };
+    b.prepend(img);
     img.src = f.src;
     b.onclick = () => abrir(i);
     (grupos.get(f.categoria) || grupos.get("Instalaciones")).appendChild(b);

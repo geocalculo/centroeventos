@@ -6,7 +6,7 @@
 
 Abre esta carpeta en VS Code. Con la extensión Live Server instalada, haz clic derecho sobre `index.html` y selecciona **Open with Live Server**. Abre `admin.html` en la misma dirección para revisar el panel demo. No se necesita compilación ni configurar Firebase para visualizar el sitio.
 
-El dominio es una referencia de marca y metadatos; su conexión al alojamiento y DNS queda pendiente. Las fotos, el contacto y la ubicación reales también están pendientes. La sección Nuestra historia está dedicada a María Inah; no incluye un retrato ficticio.
+El dominio es una referencia de marca y metadatos; su conexión al alojamiento y DNS queda pendiente. Se incluyen las siete fotos disponibles de `fotos/`; el contacto y la ubicación reales siguen pendientes. La sección Nuestra historia está dedicada a María Inah; no incluye un retrato ficticio.
 
 **FOTOS → DISPONIBILIDAD → WHATSAPP**
 
@@ -65,6 +65,8 @@ El texto se edita en `index.html` (busca `Vi la web de`).
 Mientras `firebase.apiKey` esté vacío, la web muestra fechas de ejemplo y el admin guarda los cambios solo en el navegador. Aparece una etiqueta amarilla “Modo demo” para que no se olvide.
 
 ## Fotografías comerciales
+
+La portada utiliza `fotos/piscina.png`. La galería muestra las siete fotos disponibles, agrupadas en Piscina, Salón, Jardines e Instalaciones. Solo se incluyen en la galería archivos disponibles; agrega nuevas entradas a `config.js` al incorporar más fotos.
 
 Copia las fotos reales dentro de `fotos/`. Los espacios pendientes se reemplazan al cargar los archivos y recargar la página con Live Server.
 

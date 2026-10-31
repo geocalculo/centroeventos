@@ -28,18 +28,16 @@ window.SITE_CONFIG = {
   mesesVisibles: 12,
 
   // Fotos (pon los archivos en la carpeta /fotos). Recomendado: JPG/WebP de 1600 px de ancho, < 300 KB.
-  portada: "fotos/portada.jpg",
+  portada: "fotos/piscina.png",
   retrato: "fotos/maria-inah.jpg",
   fotos: [
-    { src: "fotos/piscina.png", titulo: "Piscina", categoria: "Piscina" },
-    { src: "fotos/piscina-tarde.jpg", titulo: "Piscina al atardecer", categoria: "Piscina" },
-    { src: "fotos/quincho.jpg", titulo: "Quincho", categoria: "Quincho" },
-    { src: "fotos/quincho-interior.jpg", titulo: "Interior del quincho", categoria: "Quincho" },
-    { src: "fotos/jardin.jpg", titulo: "Jardín", categoria: "Jardines" },
-    { src: "fotos/parrilla.png", titulo: "Parrilla", categoria: "Instalaciones" },
-    { src: "fotos/cocina-lena.jpg", titulo: "Cocina a leña", categoria: "Instalaciones" },
-    { src: "fotos/banos.jpg", titulo: "Baños", categoria: "Instalaciones" },
-    { src: "fotos/estacionamiento.jpg", titulo: "Estacionamiento", categoria: "Instalaciones" }
+    { src: "fotos/piscina.png", titulo: "Piscina y áreas verdes", categoria: "Piscina" },
+    { src: "fotos/Edificio de madera en jardín soleado.png", titulo: "Salón de madera junto al jardín", categoria: "Salón" },
+    { src: "fotos/Salón rústico de cumpleaños iluminado.png", titulo: "Interior del salón para celebraciones", categoria: "Salón" },
+    { src: "fotos/Pabellón de madera iluminado por la noche.png", titulo: "Salón iluminado por la noche", categoria: "Salón" },
+    { src: "fotos/Jardín tranquilo al atardecer.png", titulo: "Jardín al atardecer", categoria: "Jardines" },
+    { src: "fotos/parrilla.png", titulo: "Parrilla y cocina a leña", categoria: "Instalaciones" },
+    { src: "fotos/Patio rústico con parrilla y piscina.png", titulo: "Patio con parrilla y vista a la piscina", categoria: "Instalaciones" }
   ],
 
   // Firebase: pega aquí la config de tu proyecto (Consola Firebase → Configuración del proyecto → Tus apps → Web).
