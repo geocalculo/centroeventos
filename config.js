@@ -11,7 +11,7 @@ window.SITE_CONFIG = {
   horario: "12:00–20:00",
 
   // WhatsApp: código país + número, sin "+", espacios ni guiones (ej: 56912345678)
-  whatsapp: "56900000000",
+  whatsapp: "56985962740",
 
   // Días de la semana que arriendas (0=domingo, 1=lunes … 6=sábado).
   // Los días que no estén aquí aparecen como "no disponible".
