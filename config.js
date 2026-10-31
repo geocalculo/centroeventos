@@ -29,7 +29,6 @@ window.SITE_CONFIG = {
     { src: "fotos/Salón rústico de cumpleaños iluminado.png", titulo: "Interior del salón para celebraciones", categoria: "Salón" },
     { src: "fotos/Pabellón de madera iluminado por la noche.png", titulo: "Salón iluminado por la noche", categoria: "Salón" },
     { src: "fotos/Jardín tranquilo al atardecer.png", titulo: "Jardín al atardecer", categoria: "Jardines" },
-    { src: "fotos/parrilla.png", titulo: "Parrilla y cocina a leña", categoria: "Instalaciones" },
     { src: "fotos/Patio rústico con parrilla y piscina.png", titulo: "Patio con parrilla y vista a la piscina", categoria: "Instalaciones" }
   ],
 

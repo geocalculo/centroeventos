@@ -6,7 +6,7 @@
 
 Abre esta carpeta en VS Code. Con la extensión Live Server instalada, haz clic derecho sobre `index.html` y selecciona **Open with Live Server**. Abre `admin.html` en la misma dirección para revisar el panel demo. No se necesita compilación ni configurar Firebase para visualizar el sitio.
 
-El dominio es una referencia de marca y metadatos; su conexión al alojamiento y DNS queda pendiente. Se incluyen las siete fotos disponibles de `fotos/`; el contacto real sigue pendiente. La ubicación se entrega personalmente a cada cliente. La sección Nuestra historia está dedicada a María Inah Echegaray Aguirre, nacida en Copiapó en 1904 y fallecida en Copiapó a los 85 años, sin fotografía.
+El dominio es una referencia de marca y metadatos; su conexión al alojamiento y DNS queda pendiente. Se incluyen las seis fotos disponibles de `fotos/`; el contacto real sigue pendiente. La ubicación se entrega personalmente a cada cliente. La sección Nuestra historia está dedicada a María Inah Echegaray Aguirre, nacida en Copiapó en 1904 y fallecida en Copiapó a los 85 años, sin fotografía.
 
 **FOTOS → DISPONIBILIDAD → WHATSAPP**
 
@@ -33,7 +33,7 @@ El dominio es una referencia de marca y metadatos; su conexión al alojamiento y
 ## Puesta en marcha (≈15 min)
 
 1. **Fotos**: copia 1 portada + 8 fotos en `fotos/` con estos nombres (o cambia los nombres en `config.js`):
-   `portada.jpg, piscina.png, quincho.jpg, parrilla.png, cocina-lena.jpg, quincho-interior.jpg, piscina-tarde.jpg, jardin.jpg, estacionamiento.jpg`
+   `portada.jpg, piscina.png, quincho.jpg, cocina-lena.jpg, quincho-interior.jpg, piscina-tarde.jpg, jardin.jpg, estacionamiento.jpg`
    Recomendado: 1600 px de ancho, JPG/WebP, menos de 300 KB cada una (squoosh.app las optimiza gratis).
 2. **config.js**: pon el nombre, tu WhatsApp (`569XXXXXXXX`).
 3. **Firebase** (consola.firebase.google.com):
@@ -66,7 +66,7 @@ Mientras `firebase.apiKey` esté vacío, la web muestra fechas de ejemplo y el a
 
 ## Fotografías comerciales
 
-La portada utiliza `fotos/piscina.png`. La galería muestra las siete fotos disponibles, agrupadas en Piscina, Salón, Jardines e Instalaciones. Solo se incluyen en la galería archivos disponibles; agrega nuevas entradas a `config.js` al incorporar más fotos.
+La portada utiliza `fotos/piscina.png`. La galería muestra las seis fotos disponibles, agrupadas en Piscina, Salón, Jardines e Instalaciones. Solo se incluyen en la galería archivos disponibles; agrega nuevas entradas a `config.js` al incorporar más fotos.
 
 Copia las fotos reales dentro de `fotos/`. Los espacios pendientes se reemplazan al cargar los archivos y recargar la página con Live Server.
 
@@ -74,6 +74,6 @@ Copia las fotos reales dentro de `fotos/`. Los espacios pendientes se reemplazan
 - `piscina.png`, `piscina-tarde.jpg`: piscina.
 - `quincho.jpg`, `quincho-interior.jpg`: quincho.
 - `jardin.jpg`: jardines.
-- `parrilla.png`, `cocina-lena.jpg`, `banos.jpg`, `estacionamiento.jpg`: instalaciones.
+- `cocina-lena.jpg`, `banos.jpg`, `estacionamiento.jpg`: instalaciones.
 
 Optimiza los JPG antes de copiarlos (idealmente menos de 400 KB por foto de galería y menos de 700 KB para la portada). No se incluyen fotografías ficticias. La ficha comercial presenta capacidad de 30 personas, horario de 12:00 a 20:00 horas, valor referencial de $250.000 CLP y servicios de piscina, baños, parrilla y cocina a leña.
