@@ -16,7 +16,7 @@ El dominio es una referencia de marca y metadatos; su conexión al alojamiento y
 |---|---|
 | `index.html` | Web pública: portada, galería, calendario, qué incluye, compartir |
 | `admin.html` | Panel privado: **Bloquear fecha / Liberar fecha** (nada más) |
-| `config.js` | **Lo único que editas**: nombre, precio, WhatsApp, fotos, Firebase |
+| `config.js` | **Lo único que editas**: nombre, WhatsApp, fotos, Firebase |
 | `calendario.js` | Lógica compartida del calendario y Firestore (no hace falta tocarlo) |
 | `firestore.rules` | Seguridad: todos leen, solo tu correo escribe |
 | `firebase.json` | Configuración de Firebase Hosting |
@@ -66,7 +66,7 @@ Mientras Firebase no esté configurado, la web pública permite elegir fechas de
 
 ## Fotografías comerciales
 
-La portada utiliza `fotos/piscina1.png`. La galería muestra las seis fotos disponibles, agrupadas en Piscina, Salón, Jardines e Instalaciones. Solo se incluyen en la galería archivos disponibles; agrega nuevas entradas a `config.js` al incorporar más fotos.
+La portada utiliza `fotos/portada.png`. La galería muestra las seis fotos disponibles, agrupadas en Piscina, Salón, Jardines e Instalaciones. Solo se incluyen en la galería archivos disponibles; agrega nuevas entradas a `config.js` al incorporar más fotos.
 
 Copia las fotos reales dentro de `fotos/`. Los espacios pendientes se reemplazan al cargar los archivos y recargar la página con Live Server.
 
@@ -76,4 +76,4 @@ Copia las fotos reales dentro de `fotos/`. Los espacios pendientes se reemplazan
 - `jardin.jpg`: jardines.
 - `cocina-lena.jpg`, `banos.jpg`, `estacionamiento.jpg`: instalaciones.
 
-Optimiza los JPG antes de copiarlos (idealmente menos de 400 KB por foto de galería y menos de 700 KB para la portada). No se incluyen fotografías ficticias. La ficha comercial presenta capacidad de 30 personas, horario de 12:00 a 20:00 horas, valor referencial de $250.000 CLP y servicios de piscina, baños, parrilla y cocina a leña.
+Optimiza los JPG antes de copiarlos (idealmente menos de 400 KB por foto de galería y menos de 700 KB para la portada). No se incluyen fotografías ficticias. La ficha comercial presenta capacidad de 30 personas, horario de 12:00 a 20:00 horas, servicios de piscina, baños, parrilla y cocina a leña.

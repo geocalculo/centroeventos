@@ -7,7 +7,6 @@ window.SITE_CONFIG = {
   bajada: "Centro de Eventos · Máximo 30 personas",
   eslogan: "Donde los recuerdos florecen",
   dominio: "https://mipimiento.cl",
-  precio: "$250.000",
   horario: "12:00–20:00",
 
   // WhatsApp: código país + número, sin "+", espacios ni guiones (ej: 56912345678)
@@ -22,7 +21,7 @@ window.SITE_CONFIG = {
   mesesVisibles: 12,
 
   // Fotos (pon los archivos en la carpeta /fotos). Recomendado: JPG/WebP de 1600 px de ancho, < 300 KB.
-  portada: "fotos/piscina1.png",
+  portada: "fotos/portada.png",
   fotos: [
     { src: "fotos/piscina1.png", titulo: "Piscina y áreas verdes", categoria: "Piscina" },
     { src: "fotos/exterior1.png", titulo: "Salón de madera junto al jardín", categoria: "Salón" },

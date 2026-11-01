@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://mipimiento.cl/">
 <meta property="og:title" content="Mi Pimiento | Centro de Eventos">
 <meta property="og:description" content="Donde los recuerdos florecen. Un lugar para encuentros familiares, con piscina, quincho y áreas verdes.">
-<meta property="og:image" content="https://mipimiento.cl/fotos/piscina1.png">
+<meta property="og:image" content="https://mipimiento.cl/fotos/portada.png">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#24301f">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -77,9 +77,7 @@
   .dedicatoria small{color:var(--muted)}
   @media(min-width:820px){.historia-grid{grid-template-columns:1.4fr 1fr;gap:64px}}
   @media(max-width:599px){section{padding:60px 0}.topbar{gap:16px}.hero-body{padding-top:40px}}
-  .precio{display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:.2em .8em;margin-bottom:30px}
-  .precio b{font-family:var(--serif);font-weight:600;font-size:clamp(1.8rem,4vw,2.4rem)}
-  .precio span{font-size:1rem;opacity:.85;border-left:1px solid rgba(255,255,255,.45);padding-left:.8em}
+  .hero-horario{font-size:1rem;opacity:.85;margin-bottom:30px}
 
   /* ---------- Galería ---------- */
   .gal{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:34px}
@@ -176,7 +174,7 @@
   .hero-foto-aviso{position:relative;margin:0 auto 30px;border:1px dashed #e3dacb80;border-radius:12px;color:var(--paper);max-width:520px}
   .ficha{padding:38px 0;background:var(--olive);color:var(--paper)}
   .ficha .eyebrow{color:#efb492}.ficha h2{font-size:clamp(1.7rem,4vw,2.3rem)}
-  .ficha-datos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:24px 0}
+  .ficha-datos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:24px 0}
   .ficha-datos dt{font-size:.8rem;color:#ded8ca;margin-bottom:6px}
   .ficha-datos dd{font:400 clamp(1.3rem,3vw,2rem)/1.25 var(--serif);margin:0}
   .ficha-servicios{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
@@ -215,7 +213,7 @@
     <h1 data-c="nombre">Mi Pimiento</h1>
     <p class="eslogan" data-c="eslogan">Donde los recuerdos florecen</p>
     <p class="tag" data-c="bajada"></p>
-    <div class="precio"><b data-c="precio"></b><span data-c="horario"></span></div>
+    <p class="hero-horario" data-c="horario"></p>
     <div class="hero-links"><a class="btn btn-light" href="#disponibilidad">Ver disponibilidad <span aria-hidden="true">→</span></a><a class="historia-link" href="#historia">Nuestra historia</a></div>
   </div>
 </header>
@@ -227,7 +225,6 @@
     <dl class="ficha-datos">
       <div><dt>Capacidad máxima</dt><dd>30 personas</dd></div>
       <div><dt>Horario</dt><dd>12:00 a 20:00 horas</dd></div>
-      <div><dt>Valor referencial</dt><dd>$250.000 CLP</dd></div>
     </dl>
     <ul class="ficha-servicios" aria-label="Servicios incluidos"><li>Piscina</li><li>Baños</li><li>Parrilla</li><li>Cocina a leña</li></ul>
   </div>
@@ -305,7 +302,7 @@
       <div class="pick" id="pick" aria-live="polite">
         <small>Fecha seleccionada · por confirmar</small>
         <div class="f" id="pickFecha"></div>
-        <p><span data-c="horario"></span> · hasta 30 personas · <span data-c="precio"></span></p>
+        <p><span data-c="horario"></span> · hasta 30 personas</p>
         <a class="btn btn-wa" id="pickWa" href="#" target="_blank" rel="noopener"><svg class="i"><use href="#wa"/></svg> Consultar por WhatsApp</a>
       </div>
     </div>
@@ -318,7 +315,7 @@
     <div class="reveal">
       <div class="eyebrow">Qué incluye</div>
       <h2>Todo listo para tu evento.</h2>
-      <p class="lead">Arriendo exclusivo del espacio, de <span data-c="horario"></span>, por <span data-c="precio"></span>.</p>
+      <p class="lead">Arriendo exclusivo del espacio, de <span data-c="horario"></span>.</p>
     </div>
     <div class="stats reveal">
       <div class="stat"><b>30</b><span>personas máximo</span></div>
