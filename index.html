@@ -78,6 +78,10 @@
   @media(min-width:820px){.historia-grid{grid-template-columns:1.4fr 1fr;gap:64px}}
   @media(max-width:599px){section{padding:60px 0}.topbar{gap:16px}.hero-body{padding-top:40px}}
   .hero-horario{font-size:1rem;opacity:.85;margin-bottom:30px}
+  .hero-servicios{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 18px;list-style:none;margin:0 0 26px;padding:14px 18px;max-width:620px;border:1px solid rgba(255,255,255,.3);border-radius:var(--r);background:rgba(18,24,14,.65);font-size:.9rem}
+  .hero-servicios li{display:flex;align-items:center;gap:8px}
+  .hero-servicios svg{width:18px;height:18px;flex:none;color:#dce8c9}
+  @media(min-width:600px){.hero-servicios{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
   /* ---------- Galería ---------- */
   .gal{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:34px}
@@ -214,6 +218,14 @@
     <p class="eslogan" data-c="eslogan">Donde los recuerdos florecen</p>
     <p class="tag" data-c="bajada"></p>
     <p class="hero-horario" data-c="horario"></p>
+    <ul class="hero-servicios" aria-label="Capacidad y servicios del recinto">
+      <li><svg aria-hidden="true"><use href="#chk"/></svg>Capacidad: 30 personas</li>
+      <li><svg aria-hidden="true"><use href="#chk"/></svg>Estacionamientos</li>
+      <li><svg aria-hidden="true"><use href="#chk"/></svg>Piscina</li>
+      <li><svg aria-hidden="true"><use href="#chk"/></svg>Quincho</li>
+      <li><svg aria-hidden="true"><use href="#chk"/></svg>Parrilla</li>
+      <li><svg aria-hidden="true"><use href="#chk"/></svg>Cocina a leña</li>
+    </ul>
     <div class="hero-links"><a class="btn btn-light" href="#disponibilidad">Ver disponibilidad <span aria-hidden="true">→</span></a><a class="historia-link" href="#historia">Nuestra historia</a></div>
   </div>
 </header>
