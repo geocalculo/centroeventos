@@ -149,7 +149,14 @@ async function abrirPanel() {
   unsub = await Cal.suscribir((m) => { mapa = m; pintar(); });
 }
 
-if (!Cal.configurado) {
+if (Cal.googleCalendar) {
+  $("demoMsg").hidden = false;
+  $("demoMsg").textContent = "Las reservas se administran directamente en Google Calendar. Consulta la agenda actualizada en la web pública.";
+  const enlace = document.createElement("a");
+  enlace.href = "index.html#disponibilidad";
+  enlace.textContent = "Ver calendario de reservas"; enlace.className = "ver";
+  $("demoMsg").after(enlace);
+} else if (!Cal.configurado) {
   $("demoMsg").hidden = false;
   abrirPanel();
 } else {
