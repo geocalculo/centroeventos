@@ -449,15 +449,16 @@
   const min = new Date(h.getFullYear(), h.getMonth(), 1);
   const max = new Date(h.getFullYear(), h.getMonth() + C.mesesVisibles - 1, 1);
   let mes = new Date(min), mapa = {}, sel = null;
+  let cargando = Cal.agendaConfigurada, errorAgenda = false, unsub = null, solicitud = 0;
 
   function pintar(){
     titulo.textContent = `${Cal.MESES[mes.getMonth()]} ${mes.getFullYear()}`;
     prev.disabled = mes <= min; next.disabled = mes >= max;
-    Cal.render({ el: elCal, mapa, mes, seleccion: sel, onSelect: elegir });
+    Cal.render({ el: elCal, mapa, mes, seleccion: sel, bloqueado: cargando || errorAgenda, onSelect: elegir });
     // cuenta de fechas libres del mes
     let libres = 0; const dm = new Date(mes.getFullYear(), mes.getMonth()+1, 0).getDate();
     for (let d=1; d<=dm; d++) if (Cal.estadoDe(new Date(mes.getFullYear(), mes.getMonth(), d), mapa) === "disponible") libres++;
-    status.textContent = !Cal.configurado ? "Disponibilidad por confirmar. Consulta tu fecha por WhatsApp." : libres ? `${libres} ${libres===1?"fecha disponible":"fechas disponibles"} este mes` : "Sin fechas disponibles este mes. Revisa el siguiente →";
+    status.textContent = cargando ? "Cargando agenda?" : errorAgenda ? "No pudimos cargar la agenda. Escr?benos por WhatsApp." : !Cal.agendaConfigurada ? "Disponibilidad por confirmar. Consulta tu fecha por WhatsApp." : libres ? `${libres} ${libres===1?"fecha disponible":"fechas disponibles"} este mes` : "Sin fechas disponibles este mes. Revisa el siguiente →";
   }
   function elegir(f){
     sel = f; pintar();
@@ -467,20 +468,35 @@
     pick.classList.add("on");
     if (window.innerWidth < 900) pick.scrollIntoView({behavior:"smooth", block:"center"});
   }
-  prev.onclick = () => { mes.setMonth(mes.getMonth()-1); pintar(); };
-  next.onclick = () => { mes.setMonth(mes.getMonth()+1); pintar(); };
+  prev.onclick = () => { mes.setMonth(mes.getMonth()-1); cargar(); };
+  next.onclick = () => { mes.setMonth(mes.getMonth()+1); cargar(); };
 
-  document.getElementById("leyendaDisponible").textContent = Cal.configurado ? "Disponible" : "Consultar disponibilidad";
-  if (!Cal.configurado) document.getElementById("leyendaReservado").remove();
+  document.getElementById("leyendaDisponible").textContent = Cal.agendaConfigurada ? "Disponible" : "Consultar disponibilidad";
+  if (!Cal.agendaConfigurada) document.getElementById("leyendaReservado").remove();
   pintar();
-  // Sin Firebase, el calendario público es solo un selector de fechas para consultar.
-  // Nunca mostrar las reservas de ejemplo ni los cambios del admin demo al público.
-  if (Cal.configurado) Cal.suscribir((m, err) => {
-    mapa = m;
-    if (sel && Cal.estadoDe(Cal.desdeIso(sel), mapa) !== "disponible") { sel = null; pick.classList.remove("on"); }
-    pintar();
-    if (err) status.textContent = "No pudimos cargar la agenda. Escríbenos por WhatsApp.";
-  }).catch(e => { console.error(e); status.textContent = "No pudimos cargar la agenda. Escríbenos por WhatsApp."; });
+  async function cargar() {
+    const id = ++solicitud;
+    if (unsub) { unsub(); unsub = null; }
+    sel = null; pick.classList.remove("on");
+    cargando = Cal.agendaConfigurada; errorAgenda = false; mapa = {}; pintar();
+    if (!Cal.agendaConfigurada) return;
+    try {
+      const cancelar = await Cal.suscribir((m, err) => {
+        if (id !== solicitud) return;
+        mapa = m; cargando = false; errorAgenda = !!err;
+        if (sel && (err || Cal.estadoDe(Cal.desdeIso(sel), mapa) !== "disponible")) {
+          sel = null; pick.classList.remove("on");
+        }
+        pintar();
+      }, new Date(mes));
+      if (id === solicitud) unsub = cancelar; else cancelar();
+    } catch (err) {
+      if (id !== solicitud) return;
+      cargando = false; errorAgenda = true; pintar();
+    }
+  }
+  cargar();
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) cargar(); });
 
   /* ---------- Compartir ---------- */
   const url = location.href.split("#")[0];

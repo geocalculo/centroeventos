@@ -9,6 +9,26 @@
   const FB = (m) => `https://www.gstatic.com/firebasejs/${FB_VER}/firebase-${m}.js`;
   const configurado = !!(C.firebase && C.firebase.apiKey && C.firebase.projectId);
 
+  const googleCalendar = !!C.googleCalendarUrl;
+  const agendaConfigurada = googleCalendar || configurado;
+  async function leerGoogle(mes, signal) {
+    const year = mes.getFullYear(), month = mes.getMonth() + 1;
+    const url = new URL(C.googleCalendarUrl);
+    url.searchParams.set("year", year); url.searchParams.set("month", month);
+    const response = await fetch(url, { signal, credentials: "omit", cache: "no-store" });
+    if (!response.ok) throw new Error("Error HTTP de agenda: " + response.status);
+    const data = await response.json();
+    if (data.year !== year || data.month !== month || !Array.isArray(data.reserved)) throw new Error("Respuesta de agenda inv?lida o de otro mes");
+    const mapa = {};
+    for (const fecha of data.reserved) {
+      if (typeof fecha !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(fecha) ||
+          !fecha.startsWith(year + "-" + String(month).padStart(2, "0") + "-") ||
+          iso(desdeIso(fecha)) !== fecha) throw new Error("Fecha de reserva inv?lida");
+      mapa[fecha] = "reservado";
+    }
+    return mapa;
+  }
+
   const MESES = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
   const DIAS = ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"];
   const DIAS_CORTOS = ["Lu","Ma","Mi","Ju","Vi","Sá","Do"];
@@ -58,7 +78,15 @@
   function demoGuardar(m) { try { localStorage.setItem(DEMO_KEY, JSON.stringify(m)); } catch (e) {} }
   const demoSubs = new Set();
 
-  async function suscribir(cb) {
+  async function suscribir(cb, mes = hoy()) {
+    if (googleCalendar) {
+      const controller = new AbortController();
+      let activo = true;
+      const timeout = setTimeout(() => controller.abort(), 20000);
+      leerGoogle(mes, controller.signal).then(m => { if (activo) cb(m); })
+        .catch(err => { if (activo) cb({}, err); }).finally(() => clearTimeout(timeout));
+      return () => { activo = false; clearTimeout(timeout); controller.abort(); };
+    }
     if (!configurado) {
       const fn = () => cb(demoLeer());
       demoSubs.add(fn); fn();
@@ -73,6 +101,7 @@
   }
 
   async function setEstado(fecha, reservado) {
+    if (googleCalendar) throw new Error("Administra las reservas en Google Calendar");
     if (!configurado) {
       const m = demoLeer();
       if (reservado) m[fecha] = "reservado"; else delete m[fecha];
@@ -95,12 +124,12 @@
   /* ---------- Render del calendario ----------
      opts: { el, mapa, mes (Date), onSelect(fecha, estado), seleccion, admin } */
   function render(opts) {
-    const { el, mapa, mes, onSelect, seleccion, admin } = opts;
+    const { el, mapa, mes, onSelect, seleccion, admin, bloqueado } = opts;
     const y = mes.getFullYear(), mo = mes.getMonth();
     const primero = new Date(y, mo, 1);
     const offset = (primero.getDay() + 6) % 7; // semana parte el lunes
     const diasMes = new Date(y, mo + 1, 0).getDate();
-    const etiquetas = { disponible: !configurado && !admin ? "Consultar disponibilidad" : "Disponible", reservado: "Reservado", pasada: "No disponible para reservar", cerrado: "No disponible" };
+    const etiquetas = { disponible: !agendaConfigurada && !admin ? "Consultar disponibilidad" : "Disponible", reservado: "Reservado", pasada: "No disponible para reservar", cerrado: "No disponible" };
 
     let h = `<div class="cal-grid" role="grid">`;
     DIAS_CORTOS.forEach((d) => (h += `<div class="cal-dow" role="columnheader">${d}</div>`));
@@ -108,8 +137,8 @@
     for (let dia = 1; dia <= diasMes; dia++) {
       const d = new Date(y, mo, dia);
       const f = iso(d);
-      const e = estadoDe(d, mapa);
-      const clickable = admin ? e !== "pasada" : e === "disponible";
+      const e = bloqueado ? "cerrado" : estadoDe(d, mapa);
+      const clickable = bloqueado ? false : admin ? e !== "pasada" : e === "disponible";
       const sel = seleccion === f ? " sel" : "";
       const esHoy = f === iso(hoy()) ? " hoy" : "";
       h += `<button type="button" class="cal-day ${e}${sel}${esHoy}" data-f="${f}" data-e="${e}" ${clickable ? "" : "disabled"}
@@ -122,5 +151,5 @@
     );
   }
 
-  window.Cal = { C, configurado, MESES, DIAS, iso, hoy, manana, desdeIso, largo, suscribir, setEstado, estadoDe, render, initFirebase, FB };
+  window.Cal = { C, configurado, googleCalendar, agendaConfigurada, MESES, DIAS, iso, hoy, manana, desdeIso, largo, suscribir, setEstado, estadoDe, render, initFirebase, FB };
 })();
