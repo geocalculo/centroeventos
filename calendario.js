@@ -18,12 +18,12 @@
     const response = await fetch(url, { signal, credentials: "omit", cache: "no-store" });
     if (!response.ok) throw new Error("Error HTTP de agenda: " + response.status);
     const data = await response.json();
-    if (data.year !== year || data.month !== month || !Array.isArray(data.reserved)) throw new Error("Respuesta de agenda inv?lida o de otro mes");
+    if (data.year !== year || data.month !== month || !Array.isArray(data.reserved)) throw new Error("Respuesta de agenda inválida o de otro mes");
     const mapa = {};
     for (const fecha of data.reserved) {
       if (typeof fecha !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(fecha) ||
           !fecha.startsWith(year + "-" + String(month).padStart(2, "0") + "-") ||
-          iso(desdeIso(fecha)) !== fecha) throw new Error("Fecha de reserva inv?lida");
+          iso(desdeIso(fecha)) !== fecha) throw new Error("Fecha de reserva inválida");
       mapa[fecha] = "reservado";
     }
     return mapa;

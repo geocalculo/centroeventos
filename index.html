@@ -458,7 +458,7 @@
     // cuenta de fechas libres del mes
     let libres = 0; const dm = new Date(mes.getFullYear(), mes.getMonth()+1, 0).getDate();
     for (let d=1; d<=dm; d++) if (Cal.estadoDe(new Date(mes.getFullYear(), mes.getMonth(), d), mapa) === "disponible") libres++;
-    status.textContent = cargando ? "Cargando agenda?" : errorAgenda ? "No pudimos cargar la agenda. Escr?benos por WhatsApp." : !Cal.agendaConfigurada ? "Disponibilidad por confirmar. Consulta tu fecha por WhatsApp." : libres ? `${libres} ${libres===1?"fecha disponible":"fechas disponibles"} este mes` : "Sin fechas disponibles este mes. Revisa el siguiente →";
+    status.textContent = cargando ? "Cargando agenda..." : errorAgenda ? "No pudimos cargar la agenda. Escríbenos por WhatsApp." : !Cal.agendaConfigurada ? "Disponibilidad por confirmar. Consulta tu fecha por WhatsApp." : libres ? `${libres} ${libres===1?"fecha disponible":"fechas disponibles"} este mes` : "Sin fechas disponibles este mes. Revisa el siguiente →";
   }
   function elegir(f){
     sel = f; pintar();

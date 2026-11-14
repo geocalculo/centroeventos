@@ -20,7 +20,7 @@ window.SITE_CONFIG = {
   // Cuántos meses hacia adelante se puede navegar en el calendario
   mesesVisibles: 12,
 
-  // Agenda p?blica de solo lectura; administrar reservas en Google Calendar.
+  // Agenda pública de solo lectura; administrar reservas en Google Calendar.
   googleCalendarUrl: "https://script.google.com/macros/s/AKfycbyyCKOqpuhxbz-B4YuMDInzWFFpwCsp5e42U0VFjuKpNTMEd3upKnWoTAU0jC4MEQAniw/exec",
 
   // Fotos (pon los archivos en la carpeta /fotos). Recomendado: JPG/WebP de 1600 px de ancho, < 300 KB.
