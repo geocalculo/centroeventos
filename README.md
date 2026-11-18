@@ -1,12 +1,12 @@
 # Mi Pimiento | Centro de Eventos
 
-**Donde los recuerdos florecen** · Dominio de referencia: https://mipimiento.cl/
+**Arriendo exclusivo para eventos** · Dominio de referencia: https://mipimiento.cl/
 
 ## Vista local en VS Code
 
 Abre esta carpeta en VS Code. Con la extensión Live Server instalada, haz clic derecho sobre `index.html` y selecciona **Open with Live Server**. Abre `admin.html` en la misma dirección para revisar el panel demo. No se necesita compilación ni configurar Firebase para visualizar el sitio. El calendario público permite consultar fechas desde mañana (hora de Chile); sin Firebase, la disponibilidad se confirma personalmente por WhatsApp.
 
-El dominio es una referencia de marca y metadatos; su conexión al alojamiento y DNS queda pendiente. Se incluyen las seis fotos disponibles de `fotos/`; el contacto real sigue pendiente. La ubicación se entrega personalmente a cada cliente. La sección Nuestra historia está dedicada a María Inah Echegaray Aguirre, nacida en Copiapó en 1904 y fallecida en Copiapó a los 85 años, sin fotografía.
+El dominio es una referencia de marca y metadatos; su conexión al alojamiento y DNS queda pendiente. Se incluyen las seis fotos disponibles de `fotos/`; el contacto real sigue pendiente. La ubicación se entrega personalmente a cada cliente.
 
 **FOTOS → DISPONIBILIDAD → WHATSAPP**
 
@@ -76,4 +76,4 @@ Copia las fotos reales dentro de `fotos/`. Los espacios pendientes se reemplazan
 - `jardin.jpg`: jardines.
 - `cocina-lena.jpg`, `banos.jpg`, `estacionamiento.jpg`: instalaciones.
 
-Optimiza los JPG antes de copiarlos (idealmente menos de 400 KB por foto de galería y menos de 700 KB para la portada). No se incluyen fotografías ficticias. La ficha comercial presenta capacidad de 30 personas, horario de 12:00 a 20:00 horas, servicios de piscina, baños, parrilla y cocina a leña.
+Optimiza los JPG antes de copiarlos (idealmente menos de 400 KB por foto de galería y menos de 700 KB para la portada). No se incluyen fotografías ficticias. La ficha comercial presenta capacidad de 50 personas, horario de 12:00 a 20:00 horas, servicios de piscina, baños, parrilla y cocina a leña.

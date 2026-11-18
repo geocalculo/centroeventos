@@ -4,8 +4,8 @@
 window.SITE_CONFIG = {
   // Marca
   nombre: "Mi Pimiento",
-  bajada: "Centro de Eventos · Máximo 30 personas",
-  eslogan: "Donde los recuerdos florecen",
+  bajada: "Centro de Eventos",
+  eslogan: "Arriendo exclusivo para eventos",
   dominio: "https://mipimiento.cl",
   horario: "12:00–20:00",
 
